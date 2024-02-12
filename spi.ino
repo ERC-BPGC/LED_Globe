@@ -5,6 +5,7 @@ const int latchPin2 = 9;
 const int dataPin1 = 11;
 const int dataPin2 = 10;
 const int dataPin3 = 13;
+int i;
 
 byte blue1 = 0xFF;
 byte green1 = 0x00;
@@ -20,11 +21,11 @@ void setup() {
 
 void loop() {
   setRed(red);
-  delay(1000);
+  delay(10);
   setBlue(blue1, green1);
-  delay(1000);
+  delay(10);
   setGreen(green2, blue2);
-  delay(1000);
+  delay(10);
 }
 
 void setRed(byte red) {
