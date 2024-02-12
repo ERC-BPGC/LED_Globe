@@ -29,33 +29,45 @@ void loop() {
 
 void setRed(byte red) {
   digitalWrite(latchPin2, LOW);
-  SPI.transfer(0x00); // Green
-  SPI.transfer(0x00); // Blue
+  for (i = 0; i < 14; i++){
+    SPI.transfer(0x00); // Green
+    SPI.transfer(0x00); // Blue
+  }
   digitalWrite(latchPin2, HIGH);
 
   digitalWrite(latchPin1, LOW);
-  SPI.transfer(red); // Red
+  for (i = 0; i < 14; i++){
+    SPI.transfer(red); // Red
+  }
   digitalWrite(latchPin1, HIGH);
 }
 
 void setBlue(byte blue, byte green) {
   digitalWrite(latchPin1, LOW);
-  SPI.transfer(0x00); // Red
+  for (i = 0; i < 14; i++){
+    SPI.transfer(0x00); // Red
+   }
   digitalWrite(latchPin1, HIGH);
 
   digitalWrite(latchPin2, LOW);
-  SPI.transfer(blue); // Blue
-  SPI.transfer(green); // Green
+  for (i = 0; i < 14; i++){
+    SPI.transfer(blue); // Blue
+    SPI.transfer(green); // Green
+  }
   digitalWrite(latchPin2, HIGH);
 }
 
 void setGreen(byte green, byte blue) {
   digitalWrite(latchPin1, LOW);
-  SPI.transfer(0x00); // Red
+  for (i = 0; i < 14; i++){
+    SPI.transfer(0x00); // Red
+  }
   digitalWrite(latchPin1, HIGH);
 
   digitalWrite(latchPin2, LOW);
-  SPI.transfer(blue); // Blue
-  SPI.transfer(green); // Green
+  for (i = 0; i < 14; i++){
+    SPI.transfer(blue); // Blue
+    SPI.transfer(green); // Green
+  }
   digitalWrite(latchPin2, HIGH);
 }
