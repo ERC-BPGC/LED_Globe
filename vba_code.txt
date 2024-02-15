@@ -1,0 +1,36 @@
+Function GetRGB(cell As Range) As String
+    Dim colorValue As Long
+    Dim redValue As Integer
+    Dim greenValue As Integer
+    Dim blueValue As Integer
+
+    ' Get the cell's interior color
+    colorValue = cell.Interior.Color
+
+    ' Extract the RGB values
+    redValue = colorValue Mod 256
+    greenValue = (colorValue \ 256) Mod 256
+    blueValue = (colorValue \ 256 \ 256) Mod 256
+    
+    If redValue < 128 Then
+        redValue = 0
+    Else
+        redValue = 1
+    End If
+    
+    If greenValue < 128 Then
+        greenValue = 0
+    Else
+        greenValue = 1
+    End If
+    
+    If blueValue < 128 Then
+        blueValue = 0
+    Else
+        blueValue = 1
+    End If
+
+    ' Create the RGB string
+    GetRGB = "" & redValue & "" & greenValue & "" & blueValue & ""
+End Function
+    
